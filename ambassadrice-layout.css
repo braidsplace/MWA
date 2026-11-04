@@ -1,0 +1,33 @@
+.ambassador-hero{display:block;position:relative;min-height:0;background:#673716}
+.ambassador-hero:before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:190px;background:linear-gradient(#3c221c99,transparent);pointer-events:none}
+.ambassador-hero-photo{display:block;width:100%;height:auto;object-fit:contain;filter:saturate(.85)}
+.ambassador-intro{position:absolute;z-index:2;left:5.5%;bottom:5%;width:min(620px,55%);padding:32px 38px 36px;background:#531f20d9;backdrop-filter:blur(7px)}
+.ambassador-hero h1{font-size:clamp(47px,5.2vw,80px);margin:15px 0 18px}
+.ambassador-intro>p:not(.ambassador-eyebrow){font-size:clamp(18px,1.45vw,23px);line-height:1.38;margin-bottom:0}
+.ambassador-hero-actions{margin-top:24px;gap:18px}.ambassador-hero-actions .ambassador-button{min-width:185px;padding:15px 19px}
+.ambassador-interest{display:grid;grid-template-columns:42% 58%;gap:5%;background:#f5efe7;padding:100px 10% 110px 6.5%}
+.ambassador-interest-copy{max-width:500px}.ambassador-interest-copy .ambassador-eyebrow{color:#841f24}
+.ambassador-interest h2{font-size:clamp(41px,4.8vw,73px);line-height:1.08;letter-spacing:.5mm;margin:22px 0 25px}.ambassador-interest h2 em{font-style:normal;color:#841f24}
+.ambassador-interest-copy>p:last-child{font-size:22px;line-height:1.45}
+.ambassador-interest-form{background:#fffaf3;padding:35px;box-shadow:14px 16px 0 #d8c5b4}
+.ambassador-interest-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px 19px}
+.ambassador-interest-grid label{display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:700}
+.ambassador-interest-grid .full{grid-column:1/-1}
+.ambassador-interest-grid input{width:100%;min-height:51px;border:1px solid #cbb9aa;background:#f5efe7;padding:13px 15px;font:400 17px Cochin,Georgia,serif;color:#2d2420}
+.ambassador-interest-form .ambassador-consent{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.4;margin:22px 0}
+.ambassador-consent input{width:18px;height:18px;flex:0 0 18px;accent-color:#841f24}.ambassador-consent a{text-decoration:underline}
+.ambassador-interest-form button{width:100%;border:0;background:#841f24;color:#f5efe7;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;text-transform:uppercase;letter-spacing:.1em;font:700 13px Cochin,Georgia,serif;cursor:pointer}
+.ambassador-interest-form button:disabled{opacity:.55;cursor:wait}
+#ambassador-interest-feedback{min-height:1.5em;margin:16px 0 0;font-size:15px;line-height:1.4}
+#ambassador-interest-feedback.success{color:#276b42}#ambassador-interest-feedback.error{color:#9a252a}
+.ambassador-honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media(max-width:1100px){.ambassador-intro{width:min(570px,68%);bottom:3%}.ambassador-hero h1{font-size:clamp(42px,5vw,65px)}.ambassador-interest{grid-template-columns:1fr;gap:30px;padding:85px 7%}.ambassador-interest-copy{max-width:720px}}
+@media(max-width:740px){.ambassador-header{top:31px;background:#531f20b8}.ambassador-hero:before{display:none}.ambassador-intro{position:static;width:auto;padding:45px 6% 55px;background:#672725;backdrop-filter:none}.ambassador-hero h1{font-size:clamp(45px,11vw,65px)}.ambassador-intro>p:not(.ambassador-eyebrow){font-size:19px}.ambassador-hero-photo{padding-top:79px;background:#672725}.ambassador-interest{padding:70px 6% 85px}.ambassador-interest-form{padding:26px}}
+@media(max-width:480px){.ambassador-interest-grid{grid-template-columns:1fr}.ambassador-interest-grid .full{grid-column:auto}.ambassador-interest-form{padding:22px}.ambassador-hero-actions{align-items:flex-start}}
+.ambassador-header{position:relative;top:auto;background:#672725;padding-top:22px;padding-bottom:22px}
+.ambassador-hero:before{display:none}
+.ambassador-hero-photo{filter:none}
+.ambassador-intro{position:static;width:auto;max-width:none;padding:70px 6.5% 78px;background:#672725;backdrop-filter:none}
+.ambassador-intro>p:not(.ambassador-eyebrow){max-width:780px}
+.ambassador-hero h1{max-width:900px}
+@media(max-width:740px){.ambassador-header{top:auto;background:#672725}.ambassador-hero-photo{padding-top:0}.ambassador-intro{padding:45px 6% 55px}}

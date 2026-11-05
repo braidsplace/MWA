@@ -57,6 +57,13 @@ for suffix in ("*.html", "*.css"):
         if source.name in {"portail-ambassadrice.html", "connexion-ambassadrice.html"}:
             continue
         copy2(source, DIST / source.name)
+        if source.suffix == ".html":
+            published = DIST / source.name
+            html = published.read_text(encoding="utf-8")
+            html = html.replace('<div class="concept-note">Proposition de direction artistique · aperçu non publié</div>', "")
+            html = html.replace('<small>PROPOSITION DE DIRECTION ARTISTIQUE · NON PUBLIÉE</small>', "")
+            html = html.replace('<small>PROPOSITION DE DIRECTION ARTISTIQUE · NON PUBLIÉE · PROGRAMME INDICATIF</small>', "")
+            published.write_text(html, encoding="utf-8")
 copy2(ROOT / "script.js", DIST / "script.js")
 copytree(
     ROOT / "assets", DIST / "assets",

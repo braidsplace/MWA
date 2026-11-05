@@ -3,6 +3,7 @@
 .env.*
 node_modules/
 netlify/dist/
+pages/dist/
 ionos/dist/
 ionos/private/config.php
 assets/made-with-africa-presentation-1080p.mp4

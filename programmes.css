@@ -27,6 +27,9 @@
 .program-section-head p{font-size:16px;line-height:1.5;max-width:310px;margin:0}
 .program-stages{list-style:none;margin:0;padding:0;border-top:1px solid #9b8b7c}
 .program-stages li{display:grid;grid-template-columns:145px 1fr 145px;gap:3%;align-items:start;padding:20px 0;border-bottom:1px solid #9b8b7c}
+.program-section-cta{display:flex;justify-content:flex-end;margin-top:34px}
+.program-timeline .program-section-cta .button{background:var(--wine);color:var(--cream)}
+.program-inclusions .program-section-cta{margin-top:32px}
 .program-stage-index,.program-stage-note{font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:600;color:var(--wine)}
 .program-stage-index{font-family:var(--text);font-weight:700}
 .program-stages h3{font-family:var(--text);font-weight:700;letter-spacing:0;font-size:clamp(20px,2vw,27px);line-height:1.2;margin:0 0 9px}
@@ -80,6 +83,8 @@
   .program-section-head{display:block;margin:42px 0 28px}
   .program-section-head p{margin-top:25px}
   .program-stages li{grid-template-columns:1fr;gap:10px;padding:21px 0}
+  .program-section-cta{justify-content:stretch}
+  .program-section-cta .button{width:100%}
   .program-stages h3{font-size:clamp(20px,5vw,27px)}
   .program-stages p{font-size:16px}
   .program-stage-note{text-align:left}

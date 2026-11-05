@@ -238,10 +238,10 @@ def e(value):
     return escape(value, quote=True)
 
 
-def render_stages(stages):
+def render_stages(trip):
     return "\n".join(
         f'''        <li><span class="program-stage-index">{e(moment)}</span><div><h3>{e(title)}</h3><p>{e(description)}</p></div><span class="program-stage-note">{e(note)}</span></li>'''
-        for moment, title, description, note in stages
+        for moment, title, description, note in trip["stages"]
     )
 
 
@@ -252,6 +252,7 @@ def render(trip):
         f"mailto:direction@madewithafrica.fr?subject={subject}"
         if pending else f"candidature.html?voyage={trip['slug']}"
     )
+    application = f"candidature.html?voyage={trip['slug']}"
     inclusion_title = "Ce que nous souhaitons inclure." if pending else "Ce qui est prévu dans le voyage."
     inclusion_note = (
         "Cette liste est prévisionnelle pour la Tanzanie ; rien n’est encore ouvert à la réservation."
@@ -273,7 +274,7 @@ def render(trip):
   <title>{e(trip['title'].rstrip('.'))} — Programme Sisi in Africa</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=16">
-  <link rel="stylesheet" href="programmes.css?v=5">
+  <link rel="stylesheet" href="programmes.css?v=7">
 </head>
 <body class="program-page">
   <div class="concept-note">Proposition de direction artistique · aperçu non publié</div>
@@ -301,8 +302,9 @@ def render(trip):
       <div class="section-topline"><span>Les huit étapes</span><span>UNE PREMIÈRE ESQUISSE</span></div>
       <div class="program-section-head"><h2>Le voyage,<br>étape après étape.</h2><p>Huit temps forts pour imaginer le séjour, quelle que soit sa durée. Leur ordre et leur contenu seront confirmés avant toute réservation.</p></div>
       <ol class="program-stages">
-{render_stages(trip['stages'])}
+{render_stages(trip)}
       </ol>
+      <div class="program-section-cta"><a class="button" href="{e(application)}">Je veux partir <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section id="infos" class="program-inclusions section-pad">
@@ -316,6 +318,7 @@ def render(trip):
       </div>
       <p>{e(inclusion_note)}</p>
       <div class="program-room"><h3>Ta chambre,<br>ton choix.</h3><p>La chambre partagée n’est jamais imposée. Elle peut aider à garder un tarif accessible si tu la choisis. Une option de chambre individuelle est prévue pour chaque voyage ; son supplément éventuel et sa disponibilité seront précisés avant inscription.</p></div>
+      <div class="program-section-cta"><a class="button button-cream" href="{e(application)}">Je veux partir <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="program-confirm section-pad">

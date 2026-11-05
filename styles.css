@@ -273,6 +273,15 @@ h1,h2,h3,.editorial-strip>p,.path strong,.footer strong{letter-spacing:.5mm!impo
 .sisi-hero .side-note{display:block;white-space:nowrap;background:none;color:var(--cream);padding:0;text-shadow:0 1px 8px #321719}
 .experience .section-heading-row,.destination .section-heading-row{margin-top:0}
 .faq .faq-grid{margin-top:0}
+
+.presentation-sound{position:absolute;z-index:2;top:14px;right:14px;padding:0;border:0;background:none;color:var(--cream);cursor:pointer;font:700 12px var(--text)}
+.presentation-sound span{display:block;padding:9px 12px;background:var(--wine);border:1px solid #f5efe777;border-radius:100px;white-space:nowrap}
+.presentation-sound:hover span,.presentation-sound:focus-visible span{background:#673716}
+.presentation-sound:focus-visible{outline:2px solid var(--cream);outline-offset:5px}
+@media(max-width:740px){
+  .presentation-sound{top:10px;right:10px}
+  .presentation-sound span{font-size:10px}
+}
 .destination-carousel-bar{justify-content:flex-end}
 .home-destination-track #cape-town>img{object-position:52% center}
 .home-destination-track #tulear>img{object-position:center center}

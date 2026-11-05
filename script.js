@@ -17,6 +17,17 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
 }));
 
 const presentationVideo = document.querySelector('.presentation-media video');
+const presentationSound = document.querySelector('.presentation-sound');
+if (presentationVideo && presentationSound) {
+  presentationSound.addEventListener('click', async () => {
+    presentationVideo.muted = !presentationVideo.muted;
+    presentationSound.querySelector('span').textContent = presentationVideo.muted ? 'Mets le son' : 'Couper le son';
+    presentationSound.setAttribute('aria-label', presentationVideo.muted ? 'Activer le son de la vidéo' : 'Couper le son de la vidéo');
+    if (!presentationVideo.muted) {
+      try { await presentationVideo.play(); } catch { /* Les commandes vidéo restent disponibles. */ }
+    }
+  });
+}
 const presentationCaptions = document.querySelector('.presentation-media track[kind="subtitles"]');
 if (presentationCaptions) {
   const restoreCaptions = async () => {

@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+node_modules/
+netlify/dist/
+ionos/dist/
+ionos/private/config.php
+assets/made-with-africa-presentation-1080p.mp4
+assets/made-with-africa-presentation-720p.mp4
+assets/made-with-africa-presentation-final-1080p.mp4

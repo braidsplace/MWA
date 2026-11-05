@@ -4,7 +4,7 @@
 .ambassador-hero-shade{position:absolute;inset:0;background:rgba(49,15,25,.24);pointer-events:none}
 .ambassador-hero-content{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%}
 .ambassador-signin{scroll-margin-top:105px;width:min(100%,450px);padding:34px 31px 30px;border:1px solid rgba(245,239,231,.44);border-radius:22px;background:linear-gradient(155deg,rgba(103,55,22,.68),rgba(67,24,31,.74) 52%,rgba(38,14,26,.79));box-shadow:0 26px 65px rgba(24,9,12,.32);color:#f5efe7;text-align:center;backdrop-filter:blur(9px)}
-.signin-emblem{width:54px;height:54px;border:1px solid #f5efe780;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;font:700 27px Cochin,Georgia,serif;color:#f5efe7}
+.signin-emblem{width:64px;height:64px;border:1px solid #f5efe780;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font:700 23px var(--display);letter-spacing:-.14em;color:#f5efe7}
 .signin-kicker{font:700 10px Cochin,Georgia,serif;letter-spacing:.15em;color:#e5c6b4;margin:0 0 10px}
 .ambassador-signin h1{font:700 clamp(28px,2.3vw,36px)/1.1 Cochin,Georgia,serif;letter-spacing:0!important;margin:0 0 7px}
 .signin-subtitle{font-size:15px;color:#f5efe7cf;margin:0 0 25px}

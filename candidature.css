@@ -4,8 +4,7 @@
 .application-header .brand{color:var(--form-cream)}
 .application-back{font-size:13px;letter-spacing:.05em;border-bottom:1px solid currentColor;padding-bottom:5px}
 .application-layout{display:grid;grid-template-columns:minmax(360px,40%) minmax(0,60%);min-height:100vh}
-.application-aside{position:relative;overflow:hidden;background:var(--form-bordeaux);color:var(--form-cream);padding:clamp(150px,19vh,210px) 9% 45px;display:flex;flex-direction:column;isolation:isolate}
-.application-aside:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 65%,rgba(103,55,22,.45),transparent 50%);z-index:-1}
+.application-aside{position:relative;overflow:hidden;background:var(--wine-deep);color:var(--form-cream);padding:clamp(150px,19vh,210px) 9% 45px;display:flex;flex-direction:column;isolation:isolate}
 .application-eyebrow,.application-aside-bottom,.application-intro,.step-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
 .application-eyebrow{color:#e7cab9}
 .application-aside h1{font-size:clamp(38px,3.6vw,65px);line-height:1.17;letter-spacing:.5mm;margin:25px 0 26px}
@@ -84,6 +83,6 @@
 .application-success p{font-size:20px;line-height:1.5}
 .application-success a{display:inline-block;margin-top:25px;padding:14px 20px;background:var(--form-bordeaux);color:white;border-radius:8px}
 @media(max-width:1050px){.application-layout{grid-template-columns:34% 66%}.application-aside{padding-left:8%;padding-right:8%}.application-main{padding-left:5%;padding-right:5%}.application-aside h1{font-size:38px}}
-@media(max-width:760px){.application-header{position:relative;background:var(--form-bordeaux);padding:20px 6%;font-size:12px}.application-layout{display:block}.application-aside{min-height:0;padding:35px 6% 30px}.application-aside h1{font-size:clamp(34px,8vw,55px);margin:15px 0}.application-aside>p:not(.application-eyebrow){font-size:17px;margin-bottom:0}.application-sisis{position:absolute;width:115px;height:150px;right:3%;bottom:-15px;opacity:.4}.application-aside-bottom{margin-top:20px}.application-main{padding:35px 5% 70px}.application-intro{font-size:9px}.stepper small{font-size:9px}}
+@media(max-width:760px){.application-header{position:relative;background:var(--wine-deep);padding:20px 6%;font-size:12px}.application-layout{display:block}.application-aside{min-height:0;padding:35px 6% 30px}.application-aside h1{font-size:clamp(34px,8vw,55px);margin:15px 0}.application-aside>p:not(.application-eyebrow){font-size:17px;margin-bottom:0}.application-sisis{position:absolute;width:115px;height:150px;right:3%;bottom:-15px;opacity:.4}.application-aside-bottom{margin-top:20px}.application-main{padding:35px 5% 70px}.application-intro{font-size:9px}.stepper small{font-size:9px}}
 @media(max-width:520px){.application-aside h1{max-width:300px}.field-grid,.choice-grid,.choice-grid-compact{grid-template-columns:1fr}.stepper li span{width:28px;height:28px}.stepper small{font-size:8px}.application-main{padding:26px 4% 55px}#application-form{padding:23px 17px}.form-step h2{font-size:clamp(25px,7vw,34px)}.step-description{font-size:16px}.form-actions{flex-wrap:wrap}.nav-button{font-size:14px}.nav-button-next{max-width:70%}}
 @media(prefers-reduced-motion:reduce){.form-step.is-active{animation:none}.progress-track span,.choice-card>span,.nav-button{transition:none}}

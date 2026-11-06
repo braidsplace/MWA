@@ -42,7 +42,8 @@ function sisi_phone(string $value): bool {
 
 function sisi_allowed(): array {
     return [
-        'destinations' => ['Johannesburg', 'Cape Town', 'Tuléar', 'Hoedspruit', 'Tanzanie', 'Je suis ouverte'],
+        'destinations' => ['Johannesburg', 'Cape Town', 'Tuléar', 'Hoedspruit', 'Tanzanie', 'Bénin', 'Je suis ouverte'],
+        'departureDate' => ['', '2027-03-18', '2027-05-06', '2027-07-15', '2027-10-10'],
         'ageRange' => ['', '18–25 ans', '26–35 ans', '36–45 ans', '46–55 ans', '56 ans et plus'],
         'source' => ['Instagram', 'LinkedIn', 'Une amie / le bouche-à-oreille', 'Recherche internet', 'Un événement', 'Autre'],
         'periods' => ['Dans les 3 mois', 'Dans les 6 mois', "Dans l'année", 'Plus tard / flexible'],
@@ -71,7 +72,7 @@ function sisi_normalize(array $raw): array {
     $lengths = [
         'reference' => 60, 'firstName' => 80, 'lastName' => 80, 'email' => 254,
         'whatsapp' => 30, 'departureCity' => 100, 'departureCountry' => 100,
-        'ageRange' => 50, 'source' => 80, 'duration' => 80, 'budget' => 80,
+        'ageRange' => 50, 'source' => 80, 'duration' => 80, 'budget' => 80, 'departureDate' => 10,
         'travelStyle' => 80, 'room' => 80, 'companions' => 80,
         'qualification' => 20, 'identifiedTrip' => 150, 'callbackTime' => 80,
         'callbackPhone' => 30, 'futurePeriod' => 120, 'website' => 100,
@@ -87,12 +88,14 @@ function sisi_normalize(array $raw): array {
     if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i', $p['reference'])) sisi_invalid();
     if ($p['firstName'] === '' || $p['lastName'] === '' || !filter_var($p['email'], FILTER_VALIDATE_EMAIL)
         || !sisi_phone($p['whatsapp']) || $p['departureCity'] === '' || $p['departureCountry'] === '') sisi_invalid();
-    foreach (['ageRange', 'source', 'duration', 'budget', 'travelStyle', 'room', 'companions', 'callbackTime'] as $key) {
+    foreach (['ageRange', 'source', 'duration', 'budget', 'travelStyle', 'room', 'companions', 'callbackTime', 'departureDate'] as $key) {
         if (!in_array($p[$key], $allowed[$key], true)) sisi_invalid();
     }
-    foreach (['destinations', 'periods', 'motivations', 'experiences'] as $key) {
+    foreach (['destinations', 'motivations', 'experiences'] as $key) {
         if ($p[$key] === []) sisi_invalid();
     }
+    if ($p['periods'] === [] && $p['departureDate'] === '') sisi_invalid();
+    if ($p['departureDate'] !== '' && !array_intersect($p['destinations'], ['Johannesburg', 'Cape Town', 'Hoedspruit'])) sisi_invalid();
     if ($p['source'] === '' || $p['duration'] === '' || $p['budget'] === '' || $p['travelStyle'] === ''
         || $p['room'] === '' || $p['companions'] === '') sisi_invalid();
     sisi_qualification($p['qualification']);
@@ -193,7 +196,11 @@ function sisi_page(array $p, array $config): array {
             "Tranche d'âge" => $p['ageRange'], 'Découverte de Sisi' => $p['source'],
         ],
         'Ton voyage' => [
-            'Destinations' => implode(', ', $p['destinations']), 'Périodes' => implode(', ', $p['periods']),
+            'Destinations' => implode(', ', $p['destinations']), 'Départ choisi' => match ($p['departureDate']) {
+                '2027-03-18' => '18 au 28 mars 2027', '2027-05-06' => '6 au 16 mai 2027',
+                '2027-07-15' => '15 au 23 juillet 2027', '2027-10-10' => '10 au 20 octobre 2027',
+                default => '',
+            }, 'Périodes' => implode(', ', $p['periods']),
             'Durée' => $p['duration'], 'Budget hors vol international' => $p['budget'],
         ],
         'Ta façon de voyager' => [

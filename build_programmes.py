@@ -4,6 +4,13 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
+DEPARTURES = [
+    ("2027-03-18", "18 au 28 mars 2027"),
+    ("2027-05-06", "6 au 16 mai 2027"),
+    ("2027-07-15", "15 au 23 juillet 2027"),
+    ("2027-10-10", "10 au 20 octobre 2027"),
+]
+
 
 TRIPS = [
     {
@@ -13,8 +20,9 @@ TRIPS = [
         "theme": "Ville · Safari · Rencontres",
         "image": "jozi.webp",
         "alt": "Rue et architecture du centre de Johannesburg",
-        "duration": "8 jours · 7 nuits, indicatif",
-        "dates": "12 — 19 mars 2027, dates fictives",
+        "duration": "9 à 11 jours selon le départ",
+        "dates": "Quatre départs en 2027",
+        "departures": DEPARTURES,
         "lead": "Une ville surprenante, des femmes inspirantes et une parenthèse safari.",
         "intro": "Les Sisis du monde se rejoignent à l’aéroport de Johannesburg. Un transfert de groupe nous conduit à l’hôtel ; on s’installe, puis on partage un cocktail ou un apéritif de bienvenue pour faire connaissance.",
         "note": "Le rythme exact, les intervenantes, les lieux et le safari seront confirmés dans le programme final.",
@@ -55,14 +63,15 @@ TRIPS = [
         "slug": "cape-town",
         "title": "Cape Town.",
         "country": "Afrique du Sud",
-        "theme": "Spécial jazz festival",
+        "theme": "Jazz en mars · Cape Town toute l’année",
         "image": "cape-jazz.jpg",
         "alt": "Chanteuse de jazz et saxophoniste sur scène, visuel d’ambiance",
-        "duration": "8 jours · 7 nuits, indicatif",
-        "dates": "20 — 27 mars 2027, dates fictives",
-        "lead": "Découvrir Cape Town au rythme de la musique, des rencontres et de la ville.",
+        "duration": "9 à 11 jours selon le départ",
+        "dates": "Quatre départs en 2027",
+        "departures": DEPARTURES,
+        "lead": "Découvrir Cape Town, ses rencontres et sa créativité. Le départ de mars est dédié au jazz festival.",
         "intro": "Les Sisis se retrouvent à l’aéroport de Cape Town. Après le transfert et l’installation à l’hôtel, un apéritif d’accueil ouvre le voyage et les premières conversations.",
-        "note": "La participation au Cape Town International Jazz Festival dépendra de ses dates et de sa programmation officielles. Aucun concert précis n’est encore confirmé.",
+        "note": "Le festival de jazz concerne uniquement le départ de mars, sous réserve de ses dates et de sa programmation officielles. Les départs de mai, juillet et octobre suivent un programme Cape Town sans festival.",
         "stages": [('01 / Se retrouver',
   'Les Sisis arrivent',
   'Rendez-vous à l’aéroport de Cape Town au point de rencontre convenu.',
@@ -85,8 +94,8 @@ TRIPS = [
   'Atelier'),
  ('06 / Vibrer',
   'Le jazz en partage',
-  'Concerts du Cape Town International Jazz Festival envisagés selon sa programmation officielle.',
-  'Festival à confirmer'),
+  'En mars uniquement : concerts du Cape Town International Jazz Festival envisagés selon sa programmation officielle. Aux autres dates : scènes créatives et rencontres musicales dans la ville.',
+  'Festival en mars'),
  ('07 / Profiter',
   'Trois soirées, mille sons',
   'Trois soirées musicales, avec du temps pour les découvertes, les bonnes tables et le shopping.',
@@ -104,7 +113,7 @@ TRIPS = [
         "image": "tulear-ifaty.jpg",
         "alt": "Mer près de Tuléar et d’Ifaty à Madagascar, visuel d’ambiance",
         "duration": "10 jours · 9 nuits, indicatif",
-        "dates": "05 — 14 juin 2027, dates fictives",
+        "dates": "Fin 2027 · en préparation",
         "lead": "La mer, la pirogue et le plaisir de vivre Madagascar loin de la foule.",
         "intro": "Les Sisis se rejoignent à l’aéroport convenu pour rejoindre Tuléar et Chez Lulu. On pose ses valises, puis un apéritif d’accueil donne le ton : prendre le temps de se connaître et de ralentir.",
         "note": "Les trajets, sorties en mer, rencontres et conditions de navigation dépendront des partenaires et de la météo.",
@@ -148,8 +157,9 @@ TRIPS = [
         "theme": "Ukuthula Bush Lodge · Bien-être",
         "image": "hoedspruit.webp",
         "alt": "Girafe dans le bush près de Hoedspruit, visuel d’ambiance",
-        "duration": "10 jours · 9 nuits, indicatif",
-        "dates": "03 — 12 septembre 2027, dates fictives",
+        "duration": "9 à 11 jours selon le départ",
+        "dates": "Quatre départs en 2027",
+        "departures": DEPARTURES,
         "lead": "Dix jours de déconnexion, de yoga et de nature au rythme du bush.",
         "intro": "Les Sisis se retrouvent à l’aéroport convenu avant de rejoindre Ukuthula Bush Lodge. Installation, apéritif d’accueil et première soirée calme : on laisse doucement le quotidien derrière soi.",
         "note": "Les séances de yoga, sorties nature et observations d’animaux seront précisées avec le lodge et les guides locaux.",
@@ -194,7 +204,7 @@ TRIPS = [
         "image": "tanzania.webp",
         "alt": "Acacias dans la savane tanzanienne, visuel d’ambiance",
         "duration": "Durée à annoncer",
-        "dates": "Dates à annoncer",
+        "dates": "Fin 2027 · en préparation",
         "lead": "Une prochaine destination se prépare pour les Sisis.",
         "intro": "L’itinéraire tanzanien est encore en construction. L’esprit reste le même : se rejoindre, découvrir un pays entre femmes, prendre du temps pour soi et revenir inspirée.",
         "note": "Les lieux, la durée, les activités, l’hébergement et les prestations incluses ne sont pas encore arrêtés.",
@@ -231,6 +241,29 @@ TRIPS = [
   'Un temps de clôture et un transfert vers l’aéroport concluront le voyage.',
   'À construire')],
     },
+    {
+        "slug": "benin",
+        "title": "Bénin.",
+        "country": "Bénin · Ouidah",
+        "theme": "Vodun Days · Culture · Rencontres",
+        "image": "benin-ouidah-vodun-ambiance.jpg",
+        "alt": "Illustration d’ambiance d’un rassemblement culturel à Ouidah, Bénin",
+        "duration": "Durée à annoncer",
+        "dates": "Dates du voyage à venir",
+        "lead": "À Ouidah, découvrir la richesse culturelle du Bénin autour des Vodun Days, entre Sisis.",
+        "intro": "Ce séjour au Bénin est en cours de création. Nous imaginons un voyage respectueux des traditions locales, des rencontres et des temps pour soi.",
+        "note": "Les Vodun Days 2027 sont annoncés du 2 au 9 janvier à Ouidah par les organisateurs. Les dates et la participation au festival de notre voyage restent à confirmer.",
+        "stages": [
+            ("01 / Se retrouver", "Les Sisis se rejoignent", "Un point de rencontre commun sera défini selon le trajet final.", "À préciser"),
+            ("02 / Prendre ses marques", "Bienvenue au Bénin", "Accueil, transfert et installation selon l’itinéraire retenu.", "À préciser"),
+            ("03 / Découvrir", "Ouidah et son histoire", "Explorer la ville avec des guides et partenaires locaux.", "À construire"),
+            ("04 / Écouter", "Les voix du territoire", "Rencontrer des femmes et découvrir leurs parcours.", "À construire"),
+            ("05 / Célébrer", "Autour des Vodun Days", "Vivre des temps du festival si la programmation et les dates du séjour le permettent.", "À confirmer"),
+            ("06 / Se reconnecter", "Un temps pour soi", "Atelier autour de tes envies et de tes projets.", "À construire"),
+            ("07 / Profiter", "Culture et douceur", "Laisser de la place aux découvertes, aux échanges et au repos.", "À construire"),
+            ("08 / Repartir", "L’inspiration avec soi", "Un temps de clôture avant le retour.", "À construire"),
+        ],
+    },
 ]
 
 
@@ -247,24 +280,37 @@ def render_stages(trip):
 
 def render(trip):
     subject = quote(f"Programme Sisi - {trip['title'].rstrip('.')}")
-    pending = trip["slug"] == "tanzanie"
+    pending = trip["slug"] in {"tanzanie", "tulear", "benin"}
+    has_departures = bool(trip.get("departures"))
     contact = (
         f"mailto:direction@madewithafrica.fr?subject={subject}"
         if pending else f"candidature.html?voyage={trip['slug']}"
     )
+    if has_departures:
+        contact = "#departs"
     application = f"candidature.html?voyage={trip['slug']}"
     inclusion_title = "Ce que nous souhaitons inclure." if pending else "Ce qui est prévu dans le voyage."
     inclusion_note = (
-        "Cette liste est prévisionnelle pour la Tanzanie ; rien n’est encore ouvert à la réservation."
+        "Cette liste est prévisionnelle ; rien n’est encore ouvert à la réservation pour ce voyage."
         if pending else
         "Le détail exact des prestations et des horaires sera transmis avec le programme définitif."
     )
-    cta = "Être informée" if pending else "Je réserve ma place"
+    cta = "Être informée" if pending else ("Choisir ma date" if has_departures else "Je réserve ma place")
     hero_actions = (
         '<a class="button button-cream" href="#programme">Voir le programme <span aria-hidden="true">↗</span></a>'
         if pending else
-        f'<div class="program-hero-actions"><a class="button button-cream" href="{e(contact)}">Je réserve ma place <span aria-hidden="true">↗</span></a><a class="text-link" href="#programme">Voir le programme <span aria-hidden="true">↓</span></a></div>'
+        f'<div class="program-hero-actions"><a class="button button-cream" href="{e(contact)}">{e(cta)} <span aria-hidden="true">↗</span></a><a class="text-link" href="#programme">Voir le programme <span aria-hidden="true">↓</span></a></div>'
     )
+    departures = ""
+    if has_departures:
+        date_links = "\n".join(
+            f'<a href="candidature.html?voyage={trip["slug"]}&amp;date={iso}" aria-label="Choisir le départ du {label} pour {trip["title"].rstrip(".")}"><span>{label}</span><span aria-hidden="true">↗</span></a>'
+            for iso, label in trip["departures"]
+        )
+        festival_note = '<p class="program-departures-note">Le jazz festival est envisagé uniquement pour le départ de mars. Sa programmation reste à confirmer.</p>' if trip["slug"] == "cape-town" else ""
+        departures = f'''<section id="departs" class="program-departures section-pad"><div class="section-topline"><span>Choisir son départ</span><span>2027</span></div><h2>Quand part-on ensemble ?</h2><p>Choisis la période qui te convient. Elle sera déjà sélectionnée dans ta candidature lorsque les inscriptions ouvriront.</p><div class="program-departures-grid">{date_links}</div>{festival_note}</section>'''
+    end_link = "#departs" if has_departures else (contact if pending else application)
+    end_label = "Je veux partir" if has_departures else ("Être informée" if pending else "Je veux partir")
     return f'''<!doctype html>
 <html lang="fr">
 <head>
@@ -274,7 +320,7 @@ def render(trip):
   <title>{e(trip['title'].rstrip('.'))} — Programme Sisi in Africa</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=16">
-  <link rel="stylesheet" href="programmes.css?v=7">
+  <link rel="stylesheet" href="programmes.css?v=8">
 </head>
 <body class="program-page">
   <div class="concept-note">Proposition de direction artistique · aperçu non publié</div>
@@ -298,13 +344,15 @@ def render(trip):
       <div class="program-hero-media"><img src="assets/{e(trip['image'])}" alt="{e(trip['alt'])}" fetchpriority="high"><small>{e(trip['theme'])}</small></div>
     </section>
 
+    {departures}
+
     <section id="programme" class="program-timeline section-pad">
       <div class="section-topline"><span>Les huit étapes</span><span>UNE PREMIÈRE ESQUISSE</span></div>
       <div class="program-section-head"><h2>Le voyage,<br>étape après étape.</h2><p>Huit temps forts pour imaginer le séjour, quelle que soit sa durée. Leur ordre et leur contenu seront confirmés avant toute réservation.</p></div>
       <ol class="program-stages">
 {render_stages(trip)}
       </ol>
-      <div class="program-section-cta"><a class="button" href="{e(application)}">Je veux partir <span aria-hidden="true">↗</span></a></div>
+      <div class="program-section-cta"><a class="button" href="{e(end_link)}">{e(end_label)} <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section id="infos" class="program-inclusions section-pad">
@@ -318,7 +366,7 @@ def render(trip):
       </div>
       <p>{e(inclusion_note)}</p>
       <div class="program-room"><h3>Ta chambre,<br>ton choix.</h3><p>La chambre partagée n’est jamais imposée. Elle peut aider à garder un tarif accessible si tu la choisis. Une option de chambre individuelle est prévue pour chaque voyage ; son supplément éventuel et sa disponibilité seront précisés avant inscription.</p></div>
-      <div class="program-section-cta"><a class="button button-cream" href="{e(application)}">Je veux partir <span aria-hidden="true">↗</span></a></div>
+      <div class="program-section-cta"><a class="button button-cream" href="{e(end_link)}">{e(end_label)} <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="program-confirm section-pad">

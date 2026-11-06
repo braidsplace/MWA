@@ -7,7 +7,7 @@
   <title>Je m'inscris à un voyage — Sisi in Africa</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=11">
-  <link rel="stylesheet" href="candidature.css?v=3">
+  <link rel="stylesheet" href="candidature.css?v=4">
 </head>
 <body class="application-page">
   <header class="application-header">
@@ -60,9 +60,10 @@
               <fieldset class="choice-field"><legend>Destinations souhaitées <b>*</b></legend><div class="choice-grid">
                 <label class="choice-card"><input type="checkbox" name="destinations" value="Johannesburg"><span>Johannesburg<small>Ville · Safari · Rencontres</small></span></label>
                 <label class="choice-card"><input type="checkbox" name="destinations" value="Cape Town"><span>Cape Town<small>Jazz · Culture · Océan</small></span></label>
-                <label class="choice-card"><input type="checkbox" name="destinations" value="Tuléar"><span>Tuléar<small>Mer · Pirogue · Authenticité</small></span></label>
+                <label class="choice-card"><input type="checkbox" name="destinations" value="Tuléar"><span>Tuléar<small>Fin 2027 · en préparation</small></span></label>
                 <label class="choice-card"><input type="checkbox" name="destinations" value="Hoedspruit"><span>Hoedspruit<small>Nature · Yoga · Déconnexion</small></span></label>
-                <label class="choice-card"><input type="checkbox" name="destinations" value="Tanzanie"><span>Tanzanie<small>En préparation</small></span></label>
+                <label class="choice-card"><input type="checkbox" name="destinations" value="Tanzanie"><span>Tanzanie<small>Fin 2027 · en préparation</small></span></label>
+                <label class="choice-card"><input type="checkbox" name="destinations" value="Bénin"><span>Bénin<small>Vodun Days · en préparation</small></span></label>
                 <label class="choice-card"><input type="checkbox" name="destinations" value="Je suis ouverte"><span>Surprends-moi<small>Je suis ouverte aux idées</small></span></label>
               </div></fieldset>
               <fieldset class="choice-field"><legend>Quand aimerais-tu voyager ? <b>*</b></legend><div class="choice-grid choice-grid-compact">
@@ -71,6 +72,7 @@
                 <label class="choice-card"><input type="checkbox" name="periods" value="Dans l'année"><span>Dans l'année</span></label>
                 <label class="choice-card"><input type="checkbox" name="periods" value="Plus tard / flexible"><span>Plus tard / flexible</span></label>
               </div></fieldset>
+              <label class="field" id="departure-date-field" hidden><span>Ton départ choisi</span><select name="departureDate"><option value="">Je choisirai plus tard</option><option value="2027-03-18">18 au 28 mars 2027</option><option value="2027-05-06">6 au 16 mai 2027</option><option value="2027-07-15">15 au 23 juillet 2027</option><option value="2027-10-10">10 au 20 octobre 2027</option></select></label>
               <div class="field-grid">
                 <label class="field"><span>Durée idéale <b>*</b></span><select name="duration" required><option value="">Choisir une durée</option><option>5 à 7 jours</option><option>8 à 10 jours</option><option>11 à 14 jours</option><option>Je suis flexible</option></select></label>
                 <label class="field"><span>Budget envisagé par personne, hors vol international <b>*</b></span><select name="budget" required><option value="">Choisir une fourchette</option><option>Moins de 1 500 €</option><option>1 500 à 2 500 €</option><option>2 500 à 3 500 €</option><option>Plus de 3 500 €</option><option>À discuter</option></select></label>
@@ -152,6 +154,6 @@
       </div>
     </section>
   </main>
-  <script src="candidature.js?v=1" defer></script>
+  <script src="candidature.js?v=2" defer></script>
 </body>
 </html>

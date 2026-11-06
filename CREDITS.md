@@ -11,5 +11,6 @@ Les nouvelles photos des destinations sont des visuels d'ambiance. Elles ne repr
 - **Tuléar / Ifaty dans le programme** — Léonide Mahajanjy, [Pexels](https://www.pexels.com/photo/scenic-view-of-the-indian-ocean-from-ifaty-madagascar-32380340/).
 - **Hoedspruit** — Ingo Stiller, [Unsplash](https://unsplash.com/photos/a-giraffe-standing-in-a-field-with-trees-in-the-background-KPT1H7rLEzk).
 - **Tanzanie** — Peter Jackson, [Unsplash](https://unsplash.com/photos/acacia-trees-in-a-grassy-savanna-under-a-cloudy-sky-xG_PaC73KaI).
+- **Bénin / Ouidah** — visuel d’ambiance original généré pour cette maquette. Il ne représente pas une édition réelle des Vodun Days.
 
-Les dates affichées dans les cartes sont fictives et devront être remplacées après validation des voyages.
+Les dates des départs Johannesburg, Cape Town et Hoedspruit ont été communiquées par Florence pour 2027. Le détail des programmes et la participation aux festivals restent à confirmer.

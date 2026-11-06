@@ -5,7 +5,9 @@ const NOTION_VERSION = '2026-03-11';
 const REQUEST_LIMIT = 20_000;
 const recent = new Map();
 const inFlight = new Map();
-const destinationValues = new Set(['Johannesburg','Cape Town','Tuléar','Hoedspruit','Tanzanie','Je suis ouverte']);
+const destinationValues = new Set(['Johannesburg','Cape Town','Tuléar','Hoedspruit','Tanzanie','Bénin','Je suis ouverte']);
+const departureDates = new Set(['','2027-03-18','2027-05-06','2027-07-15','2027-10-10']);
+const departureLabels = {'2027-03-18':'18 au 28 mars 2027','2027-05-06':'6 au 16 mai 2027','2027-07-15':'15 au 23 juillet 2027','2027-10-10':'10 au 20 octobre 2027'};
 const options={
   ageRange:new Set(['','18–25 ans','26–35 ans','36–45 ans','46–55 ans','56 ans et plus']),
   source:new Set(['Instagram','LinkedIn','Une amie / le bouche-à-oreille','Recherche internet','Un événement','Autre']),
@@ -34,7 +36,7 @@ function normalize(raw) {
     email:text(raw.email,254).toLowerCase(),whatsapp:text(raw.whatsapp,30),
     departureCity:text(raw.departureCity,100),departureCountry:text(raw.departureCountry,100),
     ageRange:text(raw.ageRange,50),source:text(raw.source,80),
-    destinations:list(raw.destinations,destinationValues),periods:list(raw.periods,options.periods),
+    destinations:list(raw.destinations,destinationValues),periods:list(raw.periods,options.periods),departureDate:text(raw.departureDate,10),
     duration:text(raw.duration,80),budget:text(raw.budget,80),
     motivations:list(raw.motivations,options.motivations),experiences:list(raw.experiences,options.experiences),
     travelStyle:text(raw.travelStyle,80),room:text(raw.room,80),
@@ -47,7 +49,9 @@ function normalize(raw) {
   if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(p.reference)) throw new Error('invalid');
   if(!p.firstName||!p.lastName||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email)||!validPhone(p.whatsapp)||!p.departureCity||!p.departureCountry||!p.source) throw new Error('invalid');
   for(const name of ['ageRange','source','duration','budget','travelStyle','room','companions','callbackTime']) if(!options[name].has(p[name])) throw new Error('invalid');
-  if(!p.destinations.length||!p.periods.length||!p.duration||!p.budget||!p.motivations.length||!p.experiences.length||!p.travelStyle||!p.room||!p.companions||!qualification[p.qualification]) throw new Error('invalid');
+  if(!departureDates.has(p.departureDate)) throw new Error('invalid');
+  if(p.departureDate&&!p.destinations.some(name=>['Johannesburg','Cape Town','Hoedspruit'].includes(name))) throw new Error('invalid');
+  if(!p.destinations.length||(!p.periods.length&&!p.departureDate)||!p.duration||!p.budget||!p.motivations.length||!p.experiences.length||!p.travelStyle||!p.room||!p.companions||!qualification[p.qualification]) throw new Error('invalid');
   if(p.qualification==='identified'&&!p.identifiedTrip) throw new Error('invalid');
   if(p.qualification==='callback'&&(!p.callbackTime||!validPhone(p.callbackPhone||p.whatsapp))) throw new Error('invalid');
   if(p.qualification!=='identified')p.identifiedTrip='';
@@ -123,7 +127,7 @@ function notionPage(p) {
       ['Découverte de Sisi',p.source]
     ]],
     ['Ton voyage',[
-      ['Destinations',p.destinations.join(', ')],['Périodes',p.periods.join(', ')],
+      ['Destinations',p.destinations.join(', ')],['Départ choisi',departureLabels[p.departureDate]],['Périodes',p.periods.join(', ')],
       ['Durée',p.duration],['Budget hors vol international',p.budget]
     ]],
     ['Ta façon de voyager',[

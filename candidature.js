@@ -56,7 +56,7 @@
     }
     if (index === 1) {
       if (!requiredChoice('destinations','Destinations souhaitées')) return false;
-      if (!requiredChoice('periods','Période de voyage')) return false;
+      if (!checked('periods').length && !value('departureDate')) return showError('Choisis une période ou un départ précis.', first('periods'));
       if (!requiredField('duration','Durée idéale')) return false;
       if (!requiredField('budget','Budget envisagé')) return false;
     }
@@ -82,7 +82,7 @@
       firstName:value('firstName'), lastName:value('lastName'), email:value('email'),
       whatsapp:value('whatsapp'), departureCity:value('departureCity'),
       departureCountry:value('departureCountry'), ageRange:value('ageRange'),
-      source:value('source'), destinations:checked('destinations'), periods:checked('periods'),
+      source:value('source'), destinations:checked('destinations'), periods:checked('periods'), departureDate:value('departureDate'),
       duration:value('duration'), budget:value('budget'), motivations:checked('motivations'),
       experiences:checked('experiences'), travelStyle:value('travelStyle'), room:value('room'),
       companions:value('companions'), qualification:value('qualification'),
@@ -98,7 +98,7 @@
     const d = data();
     const groups = [
       ['Faisons connaissance', [['Nom',`${d.firstName} ${d.lastName}`],['Email',d.email],['WhatsApp',d.whatsapp],['Départ',`${d.departureCity}, ${d.departureCountry}`],["Tranche d'âge",d.ageRange],['Sisi découverte via',d.source]]],
-      ['Ton voyage', [['Destinations',d.destinations.join(', ')],['Période',d.periods.join(', ')],['Durée',d.duration],['Budget hors vol international',d.budget]]],
+      ['Ton voyage', [['Destinations',d.destinations.join(', ')],['Départ choisi',d.departureDate?first('departureDate').selectedOptions[0]?.textContent:''],['Période',d.periods.join(', ')],['Durée',d.duration],['Budget hors vol international',d.budget]]],
       ['Ta façon de voyager', [['Motivations',d.motivations.join(', ')],['Expériences',d.experiences.join(', ')],['Rythme',d.travelStyle],['Chambre',d.room]]],
       ['Ton projet', [['Voyage',d.companions],['Avancement', {identified:"Voyage identifié",callback:"Besoin d'informations",future:"Projet dans plus d'un an"}[d.qualification]],['Voyage repéré',d.identifiedTrip],['Rappel',d.callbackTime],["Numéro pour l'appel",d.callbackPhone||d.whatsapp],['Période future',d.futurePeriod]]]
     ];
@@ -142,8 +142,17 @@
     document.querySelectorAll('[data-condition]').forEach(panel=>{panel.hidden=panel.dataset.condition!==input.value});
     clearError();
   }));
-  const tripsFromLinks={johannesburg:'Johannesburg','cape-town':'Cape Town',tulear:'Tuléar',hoedspruit:'Hoedspruit'};
-  const linkedTrip=tripsFromLinks[new URLSearchParams(location.search).get('voyage')];
+  const tripsFromLinks={johannesburg:'Johannesburg','cape-town':'Cape Town',tulear:'Tuléar',hoedspruit:'Hoedspruit',tanzanie:'Tanzanie',benin:'Bénin'};
+  const params=new URLSearchParams(location.search);
+  const linkedTrip=tripsFromLinks[params.get('voyage')];
+  const departureDate=first('departureDate');
+  const dateField=document.querySelector('#departure-date-field');
+  const datedTrips=new Set(['Johannesburg','Cape Town','Hoedspruit']);
+  function updateDateField(){
+    dateField.hidden=!checked('destinations').some(name=>datedTrips.has(name));
+    if(dateField.hidden) departureDate.value='';
+  }
+  form.querySelectorAll('[name="destinations"]').forEach(input=>input.addEventListener('change',updateDateField));
   if(linkedTrip){
     const destination=[...form.querySelectorAll('[name="destinations"]')].find(input=>input.value===linkedTrip);
     if(destination) destination.checked=true;
@@ -152,6 +161,8 @@
     const tripField=first('identifiedTrip');
     if(tripField) tripField.value=linkedTrip;
   }
+  updateDateField();
+  if(!dateField.hidden && [...departureDate.options].some(option=>option.value===params.get('date'))) departureDate.value=params.get('date');
   form.addEventListener('input',clearError);
   form.addEventListener('change',clearError);
   markers.forEach((marker,i)=>{

@@ -149,8 +149,14 @@
   const dateField=document.querySelector('#departure-date-field');
   const datedTrips=new Set(['Johannesburg','Cape Town','Hoedspruit']);
   function updateDateField(){
-    dateField.hidden=!checked('destinations').some(name=>datedTrips.has(name));
-    if(dateField.hidden) departureDate.value='';
+    const chosen=checked('destinations');
+    dateField.hidden=!chosen.some(name=>datedTrips.has(name));
+    [...departureDate.options].forEach(option=>{
+      if(!option.value) return;
+      option.hidden=!option.dataset.destinations.split(',').some(name=>chosen.includes(name));
+      option.disabled=option.hidden;
+    });
+    if(dateField.hidden || departureDate.selectedOptions[0]?.disabled) departureDate.value='';
   }
   form.querySelectorAll('[name="destinations"]').forEach(input=>input.addEventListener('change',updateDateField));
   if(linkedTrip){
@@ -197,7 +203,7 @@
     } finally {
       sending=false;
       submit.disabled=false;
-      submit.innerHTML='Rejoindre l\'aventure Sisi <span aria-hidden="true">↗</span>';
+      submit.innerHTML='Rejoindre l\'aventure Sisi <span aria-hidden="true">↗︎</span>';
     }
   });
   go(0);

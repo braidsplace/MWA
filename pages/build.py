@@ -18,12 +18,13 @@ def holding_page(title: str, message: str, image: str, alt: str) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} — Sisi in Africa</title>
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <style>
     *{{box-sizing:border-box}}body{{margin:0;background:#421f21;color:#f5efe7;font-family:Cochin,Georgia,serif}}
     header{{padding:28px clamp(22px,5vw,70px);position:absolute;z-index:2;width:100%}}
-    .brand{{font:bold 38px Arial,sans-serif;letter-spacing:-.12em;color:#f5efe7;text-decoration:none}}
-    .brand span{{color:#d9ad91}}main{{min-height:100svh;display:grid;grid-template-columns:1fr 1fr}}
+    .brand{{display:inline-block;width:54px;height:54px}}
+    .brand img{{width:100%;height:100%;object-fit:contain;display:block}}main{{min-height:100svh;display:grid;grid-template-columns:1fr 1fr}}
     .copy{{padding:150px clamp(28px,7vw,110px) 70px;display:flex;flex-direction:column;justify-content:center}}
     .kicker{{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#e2c4b2}}
     h1{{font:bold clamp(42px,5vw,82px)/1.02 Georgia,serif;margin:24px 0;max-width:740px}}
@@ -37,7 +38,7 @@ def holding_page(title: str, message: str, image: str, alt: str) -> str:
   </style>
 </head>
 <body>
-  <header><a class="brand" href="index.html" aria-label="Retour à l'accueil">MA<span>.</span></a></header>
+  <header><a class="brand" href="index.html" aria-label="Retour à l'accueil"><img src="assets/logo.png" alt=""></a></header>
   <main>
     <div class="copy"><span class="kicker">Sisi in Africa · Made With Africa</span><h1>{title}</h1><p>{message}</p>
       <div class="actions"><a href="mailto:direction@madewithafrica.fr?subject=Sisi%20in%20Africa">Nous écrire ↗</a><a href="index.html">Retour à l’accueil</a></div>

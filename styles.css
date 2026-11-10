@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
 
-.brand .brand-image{display:block;width:54px;height:54px;object-fit:contain}
-.signin-emblem .brand-image{display:block;width:64px;height:64px;object-fit:contain}
-@media(max-width:740px){.brand .brand-image{width:48px;height:48px}}
+.brand .brand-image{display:block;width:92px;height:34px;object-fit:contain}
+.signin-emblem .brand-image{display:block;width:54px;height:24px;object-fit:contain}
+@media(max-width:740px){.brand .brand-image{width:86px;height:32px}}
 
 :root{--wine:#672725;--wine-deep:#4d1f20;--cream:#f5f1e7;--paper:#e9e1d2;--ink:#29221e;--forest:#18372f;--gold:#b59a79;--display:'Climate Crisis',Georgia,serif;--text:Cochin,Georgia,serif;--serif:var(--text);--sans:var(--text)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans)}img{display:block;width:100%;height:100%;object-fit:cover}a{color:inherit;text-decoration:none}button{font:inherit}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.045em}em{font-weight:400}button,a{outline-offset:4px}::selection{background:var(--gold);color:var(--wine-deep)}

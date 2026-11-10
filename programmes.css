@@ -20,6 +20,8 @@
 .program-departures-grid a{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#eadfd1;color:var(--wine-deep);border:1px solid #b69c8a;padding:23px 26px;font-family:var(--text);font-size:clamp(17px,1.6vw,23px);font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
 .program-departures-grid a:hover,.program-departures-grid a:focus-visible{background:#dfcabb;transform:translateY(-2px)}
 .program-departures-grid a span:last-child{font-size:26px;font-weight:400}
+.program-departures-grid .program-departure-pending{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f1e9df;color:var(--wine-deep);border:1px solid #cbb8a9;padding:23px 26px;font-family:var(--text);font-size:clamp(17px,1.6vw,23px)}
+.program-departure-pending strong{font-size:16px;letter-spacing:.08em;text-transform:uppercase}
 .program-departures-note{margin-top:22px!important;color:var(--wine);font-weight:700}
 .program-page .section-pad{padding:72px 6.5% 82px}
 .program-page .section-topline{font-family:var(--text);font-weight:700;letter-spacing:.12em}

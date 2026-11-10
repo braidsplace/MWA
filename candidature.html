@@ -12,7 +12,7 @@
 <body class="application-page">
   <header class="application-header">
     <a class="brand" href="index.html" aria-label="Retour à l'accueil"><img class="brand-image" src="assets/logo-ma.png" alt=""></a>
-    <a class="application-back" href="index.html#voyages">← Revenir aux voyages</a>
+    <a class="application-back" href="index.html#voyages">←︎ Revenir aux voyages</a>
   </header>
   <main class="application-layout">
     <aside class="application-aside">
@@ -72,7 +72,7 @@
                 <label class="choice-card"><input type="checkbox" name="periods" value="Dans l'année"><span>Dans l'année</span></label>
                 <label class="choice-card"><input type="checkbox" name="periods" value="Plus tard / flexible"><span>Plus tard / flexible</span></label>
               </div></fieldset>
-              <label class="field" id="departure-date-field" hidden><span>Ton départ choisi</span><select name="departureDate"><option value="">Je choisirai plus tard</option><option value="2027-03-18">18 au 28 mars 2027</option><option value="2027-05-06">6 au 16 mai 2027</option><option value="2027-07-15">15 au 23 juillet 2027</option><option value="2027-10-10">10 au 20 octobre 2027</option></select></label>
+              <label class="field" id="departure-date-field" hidden><span>Ton départ choisi</span><select name="departureDate"><option value="">Je choisirai plus tard</option><option value="2027-03-14" data-destinations="Johannesburg,Cape Town">14 au 25 mars 2027</option><option value="2027-03-18" data-destinations="Hoedspruit">18 au 28 mars 2027</option><option value="2027-05-06" data-destinations="Hoedspruit">6 au 16 mai 2027</option><option value="2027-07-15" data-destinations="Hoedspruit">15 au 23 juillet 2027</option><option value="2027-10-10" data-destinations="Hoedspruit">10 au 20 octobre 2027</option></select></label>
               <div class="field-grid">
                 <label class="field"><span>Durée idéale <b>*</b></span><select name="duration" required><option value="">Choisir une durée</option><option>5 à 7 jours</option><option>8 à 10 jours</option><option>11 à 14 jours</option><option>Je suis flexible</option></select></label>
                 <label class="field"><span>Budget envisagé par personne, hors vol international <b>*</b></span><select name="budget" required><option value="">Choisir une fourchette</option><option>Moins de 1 500 €</option><option>1 500 à 2 500 €</option><option>2 500 à 3 500 €</option><option>Plus de 3 500 €</option><option>À discuter</option></select></label>
@@ -131,16 +131,16 @@
               <h2 id="step-five-title">On se dit à bientôt ?</h2>
               <p class="step-description">Prends un instant pour vérifier tes réponses.</p>
               <div id="application-summary" class="application-summary"></div>
-              <div class="privacy-note"><strong>Tes données, en confiance.</strong><p>Made With Africa SARL utilise tes réponses pour étudier ta demande et te recontacter au sujet de ton projet. Le suivi se fait dans notre espace Notion. Tu peux demander l'accès, la rectification ou la suppression de tes données à <a href="mailto:direction@madewithafrica.fr">direction@madewithafrica.fr</a>. <a href="confidentialite.html" target="_blank" rel="noopener">Lire la politique de confidentialité ↗</a></p></div>
+              <div class="privacy-note"><strong>Tes données, en confiance.</strong><p>Made With Africa SARL utilise tes réponses pour étudier ta demande et te recontacter au sujet de ton projet. Le suivi se fait dans notre espace Notion. Tu peux demander l'accès, la rectification ou la suppression de tes données à <a href="mailto:direction@madewithafrica.fr">direction@madewithafrica.fr</a>. <a href="confidentialite.html" target="_blank" rel="noopener">Lire la politique de confidentialité ↗︎</a></p></div>
               <label class="marketing-choice"><input type="checkbox" name="marketing"><span>J'accepte de recevoir par email les actualités et les prochaines aventures Sisi. <small>Facultatif, tu pourras te désinscrire à tout moment.</small></span></label>
               <p class="form-note">Les champs marqués * sont nécessaires pour traiter ta demande.</p>
             </section>
           </div>
           <p id="form-error" class="form-error" role="alert" hidden></p>
           <div class="form-actions">
-            <button type="button" id="back-button" class="nav-button nav-button-back" disabled>← Retour</button>
-            <button type="button" id="next-button" class="nav-button nav-button-next">Continuer <span aria-hidden="true">→</span></button>
-            <button type="submit" id="submit-button" class="nav-button nav-button-next" hidden>Rejoindre l'aventure Sisi <span aria-hidden="true">↗</span></button>
+            <button type="button" id="back-button" class="nav-button nav-button-back" disabled>←︎ Retour</button>
+            <button type="button" id="next-button" class="nav-button nav-button-next">Continuer <span aria-hidden="true">→︎</span></button>
+            <button type="submit" id="submit-button" class="nav-button nav-button-next" hidden>Rejoindre l'aventure Sisi <span aria-hidden="true">↗︎</span></button>
           </div>
         </form>
         <div id="application-success" class="application-success" role="status" hidden>
@@ -149,7 +149,7 @@
           <p>Ta demande a bien été reçue.</p>
           <p>L'équipe Made With Africa reviendra vers toi très bientôt pour t'accompagner dans ton projet.</p>
           <p>À très vite !</p>
-          <a href="index.html">Revenir à l'accueil ↗</a>
+          <a href="index.html">Revenir à l'accueil ↗︎</a>
         </div>
       </div>
     </section>

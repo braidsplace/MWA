@@ -297,6 +297,7 @@ h1,h2,h3,.editorial-strip>p,.path strong,.footer strong{letter-spacing:.5mm!impo
 .footer .footer-links a{font-size:12px;margin-top:0;padding-bottom:4px}
 .sisi-hero .hero-community{display:inline-flex;gap:10px;margin-top:24px;color:var(--cream);font-size:11px;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid #f5efe780;padding-bottom:7px}
 .sisi-hero .hero-community:hover{border-color:var(--cream)}
+.sisi-hero .text-arrow{font-family:Arial,Helvetica,sans-serif;font-weight:400;font-style:normal;letter-spacing:0;font-variant-emoji:text}
 .home-destination-track .travel-card>img{filter:sepia(.18) saturate(.78) contrast(1.05) brightness(.91)}
 .home-destination-track .travel-card::before{background:linear-gradient(180deg,rgba(61,27,28,.55),rgba(103,55,22,.12) 44%,rgba(60,29,27,.23) 61%,rgba(27,21,20,.86) 100%),linear-gradient(115deg,rgba(132,31,36,.13),rgba(103,55,22,.1))}
 .footer .footer-social{display:flex;gap:18px 32px;flex-wrap:wrap;margin-bottom:26px}

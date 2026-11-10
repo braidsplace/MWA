@@ -52,7 +52,7 @@ if DIST.exists():
     rmtree(DIST)
 DIST.mkdir(parents=True)
 
-for suffix in ("*.html", "*.css"):
+for suffix in ("*.html", "*.css", "robots.txt", "sitemap.xml"):
     for source in sorted(ROOT.glob(suffix)):
         if source.name in {"portail-ambassadrice.html", "connexion-ambassadrice.html"}:
             continue
@@ -63,6 +63,8 @@ for suffix in ("*.html", "*.css"):
             html = html.replace('<div class="concept-note">Proposition de direction artistique · aperçu non publié</div>', "")
             html = html.replace('<small>PROPOSITION DE DIRECTION ARTISTIQUE · NON PUBLIÉE</small>', "")
             html = html.replace('<small>PROPOSITION DE DIRECTION ARTISTIQUE · NON PUBLIÉE · PROGRAMME INDICATIF</small>', "")
+            if 'rel="apple-touch-icon"' not in html:
+                html = html.replace('</head>', '  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">\n</head>', 1)
             published.write_text(html, encoding="utf-8")
 copy2(ROOT / "script.js", DIST / "script.js")
 copytree(

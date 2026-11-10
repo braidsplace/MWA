@@ -41,7 +41,7 @@ def holding_page(title: str, message: str, image: str, alt: str) -> str:
   <header><a class="brand" href="index.html" aria-label="Retour à l'accueil"><img src="assets/logo-ma.png" alt=""></a></header>
   <main>
     <div class="copy"><span class="kicker">Sisi in Africa · Made With Africa</span><h1>{title}</h1><p>{message}</p>
-      <div class="actions"><a href="mailto:direction@madewithafrica.fr?subject=Sisi%20in%20Africa">Nous écrire ↗</a><a href="index.html">Retour à l’accueil</a></div>
+      <div class="actions"><a href="mailto:direction@madewithafrica.fr?subject=Sisi%20in%20Africa">Nous écrire ↗︎</a><a href="index.html">Retour à l’accueil</a></div>
     </div>
     <div class="visual"><img src="assets/{image}" alt="{alt}"></div>
   </main>
